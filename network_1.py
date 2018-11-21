@@ -41,7 +41,7 @@ class Interface:
 
 ## Implements a network layer packet.
 class NetworkPacket:
-    ## packet encoding lengths 
+    ## packet encoding lengths
     dst_S_length = 5
     prot_S_length = 1
 
@@ -203,7 +203,7 @@ class Router:
     #  @param i Incoming interface number for packet p
     def forward_packet(self, p, i):
         try:
-            # TODO: Here you will need to implement a lookup into the 
+            # TODO: Here you will need to implement a lookup into the
             # forwarding table to find the appropriate outgoing interface
             # for now we assume the outgoing interface is 1
             self.intf_L[1].put(p.to_byte_S(), 'out', True)
