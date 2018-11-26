@@ -152,7 +152,7 @@ class Router:
         top = ''
         for dst in self.rt_tbl_D.keys():
             top += '--------' #printing starting lines
-        print(top)
+        print(top + "--")
         # printing starting row (destinations)
         destination = "|" + self.name + "   |   "
         for dst in self.rt_tbl_D.keys():
@@ -172,8 +172,9 @@ class Router:
                     if val == 1000:
                         val = 'X'
                 body += str(val) + "  |   "
-        print(body)
-        print(top)
+            body += "\n"
+        print(body, end='')
+        print(top + "--")
 
     # print(self.rt_tbl_D)
 
