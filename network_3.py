@@ -169,7 +169,7 @@ class Router:
             for _, v in self.rt_tbl_D.items():
                 if key in v:
                     val = v[key]
-                    if val == 1000:
+                    if val == 9999:
                         val = 'X'
                 body += str(val) + "  |   "
             body += "\n"
@@ -243,7 +243,7 @@ class Router:
         data = self.name + routes
         p = NetworkPacket(0, 'control', data)
         try:
-            print('%s: sending routing update "%s" from interface %d' % (self, p, i))
+           # print('%s: sending routing update "%s" from interface %d' % (self, p, i))
             self.intf_L[i].put(p.to_byte_S(), 'out', True)
         except queue.Full:
             print('%s: packet "%s" lost on interface %d' % (self, p, i))
@@ -296,7 +296,7 @@ class Router:
                     dest_vector[self.name] = bellman_ford
                     for p in range(len(self.intf_L)): # sending router updates to all ports
                         self.send_routes(p)
-        print('%s: Received routing update %s from interface %d' % (self, p, i))
+       # print('%s: Received routing update %s from interface %d' % (self, p, i))
 
     ## thread target for the host to keep forwarding data
     def run(self):
