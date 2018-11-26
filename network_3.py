@@ -172,7 +172,8 @@ class Router:
                     if val == 1000:
                         val = 'X'
                 body += str(val) + "  |   "
-        print(body)
+            body += "\n"
+        print(body, end='')
         print(top)
 
     # print(self.rt_tbl_D)
